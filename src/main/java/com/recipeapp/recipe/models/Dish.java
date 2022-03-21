@@ -1,16 +1,22 @@
-package com.recipeapp.recipe.dish;
+package com.recipeapp.recipe.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Dish {
-    
-    private Integer dishid ;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Size(min = 5)
-    private String description ;
+    private String Description;
     @Size(min = 5)
     private Integer preparation_time ;
     @Size(min = 2)
-    private String ingredients ; 
+    private String ingredients;
     @Size(min = 2)
     private String instructions ;
 
@@ -21,34 +27,34 @@ public class Dish {
 
 
 
-    public Integer getDishid() {
-        return dishid;
+    public Integer getId() {
+        return id;
     }
 
 
 
     @Override
     public String toString() {
-        return "Dish [description=" + description + ", dishid=" + dishid + ", ingredients=" + ingredients
+        return "Dish [description=" + Description + ", dishid=" + id + ", ingredients=" + ingredients
                 + ", instructions=" + instructions + ", preparation_time=" + preparation_time + "]";
     }
 
 
 
-    public void setDishid(Integer dishid) {
-        this.dishid = dishid;
+    public void setId(Integer dishid) {
+        this.id = dishid;
     }
 
 
 
     public String getDescription() {
-        return description;
+        return Description;
     }
 
 
 
     public void setDescription(String description) {
-        this.description = description;
+        this.Description = description;
     }
 
 
@@ -89,9 +95,9 @@ public class Dish {
 
 
 
-    public Dish(Integer dishid, String description, Integer preparation_time, String ingredients, String instructions) {
-        this.dishid = dishid;
-        this.description = description;
+    public Dish(Integer id, String description, Integer preparation_time, String ingredients, String instructions) {
+        this.id = id;
+        this.Description = description;
         this.preparation_time = preparation_time;
         this.ingredients = ingredients;
         this.instructions = instructions;
@@ -102,7 +108,7 @@ public class Dish {
     public Dish(String format) {
     }
 
- 
+
 
 
 }

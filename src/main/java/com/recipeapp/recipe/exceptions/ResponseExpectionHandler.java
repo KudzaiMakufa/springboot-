@@ -23,8 +23,8 @@ public class ResponseExpectionHandler  extends ResponseEntityExceptionHandler{
      return new ResponseEntity<>(exceptionResponse,HttpStatus.INTERNAL_SERVER_ERROR);
     }
     // Resource not found exception
-    @ExceptionHandler(UserNotFoundException.class)
-    public final ResponseEntity<Object> handleUserNOtFoudException(UserNotFoundException ex, WebRequest request)  {
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public final ResponseEntity<Object> handleUserNOtFoudException(ResourceNotFoundException ex, WebRequest request)  {
         ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false)) ;
 
      return new ResponseEntity<>(exceptionResponse,HttpStatus.NOT_FOUND);
